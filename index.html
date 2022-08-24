@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/favicon.png" rel="shortcut icon" />
     <link rel="stylesheet" href="style.css">
     <title>Eldritch Horror</title>
 
@@ -13,19 +14,19 @@
         <div class="header__wrapper">
             <div class="header__wrapper_left">
                 <div class="header__card">
-                    <img class="header__card_image" src="/assets/Ancients/Cthulthu.png" alt="Cthulthu">
+                    <img class="header__card_image" name = "cthulhu" src="/assets/Ancients/Cthulhu.png" alt="Cthulhu">
                 </div>
                 <div class="header__card">
-                    <img class="header__card_image" src="/assets/Ancients/ShubNiggurath.png" alt="ShubNiggurath">
+                    <img class="header__card_image" name = "shubNiggurath" src="/assets/Ancients/ShubNiggurath.png" alt="ShubNiggurath">
                 </div>
             </div>
             <div class="header__wrapper_right">
 
                 <div class="header__card">
-                    <img class="header__card_image" src="/assets/Ancients/IogSothoth.png" alt="IogSothoth">
+                    <img class="header__card_image" name = "iogSothoth" src="/assets/Ancients/IogSothoth.png" alt="IogSothoth">
                 </div>
                 <div class="header__card">
-                    <img class="header__card_image" src="/assets/Ancients/Azathoth.png" alt="Azathoth">
+                    <img class="header__card_image" name = "azathoth" src="/assets/Ancients/Azathoth.png" alt="Azathoth">
                 </div>
             </div>
 
@@ -34,48 +35,48 @@
     </header>
     <main>
         <div class="main__wrapper">
-            <div class="difficulty">
-                <div class="difficulty_button">Очень легкая</div>
-                <div class="difficulty_button">Легкая</div>
-                <div class="difficulty_button">Средняя</div>
-                <div class="difficulty_button">Высокая</div>
-                <div class="difficulty_button">Очень высокая</div>
+            <div class="difficulty hidden">
+                <div class="difficulty_button" id = "easiest">Очень легкая</div>
+                <div class="difficulty_button" id = "easy">Легкая</div>
+                <div class="difficulty_button" id = "medium">Средняя</div>
+                <div class="difficulty_button" id = "high">Высокая</div>
+                <div class="difficulty_button" id = "highest">Очень высокая</div>
             </div>
-            <div class="stages">
+            <div class="stages hidden">
                 <div class="stage">Первая стадия</div>
                 <div class="stage_cards">
-                    <div class="cards-number green">0</div>
-                    <div class="cards-number brown">0</div>
-                    <div class="cards-number blue">0</div>
+                    <div class="cards-amount green">0</div>
+                    <div class="cards-amount brown">0</div>
+                    <div class="cards-amount blue">0</div>
                 </div>
                 <div class="stage">Вторая стадия</div>
                 <div class="stage_cards">
-                    <div class="cards-number green">0</div>
-                    <div class="cards-number brown">0</div>
-                    <div class="cards-number blue">0</div>
+                    <div class="cards-amount green">0</div>
+                    <div class="cards-amount brown">0</div>
+                    <div class="cards-amount blue">0</div>
                 </div>
                 <div class="stage">Третья стадия</div>
                 <div class="stage_cards">
-                    <div class="cards-number green">0</div>
-                    <div class="cards-number brown">0</div>
-                    <div class="cards-number blue">0</div>
+                    <div class="cards-amount green">0</div>
+                    <div class="cards-amount brown">0</div>
+                    <div class="cards-amount blue">0</div>
                 </div>
             </div>
 
-            <div class="shuffle">Замешать колоду</div>
+            <div class="shuffle hidden">Замешать колоду</div>
 
             <div class="deck">
-                <div class="shirt">
+                <div class="shirt hidden">
                     <img class="deck_image deck_image_shirt" src="assets/mythicCardBackground.png" alt="shirt">
                 </div>
-                <div class="card">
-                    <img class="deck_image" src="assets/mythicCardBackground.png" alt="shirt"> 
+                <div class="card hidden">
+                    <img class="deck_image card_image" src="assets/mythicCardBackground.png" alt="card"> 
                 </div>
             </div>            
 
 
         </div>
     </main>
-    
+    <script src="script.js" type="module"></script>
 </body>
 </html>

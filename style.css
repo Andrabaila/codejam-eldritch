@@ -45,9 +45,10 @@ body {
     border: 2px solid rgba(0, 0, 0, 0);
 }
 
-.header__card_image:hover {
-    border: 2px solid rgba(255, 255, 255, 0.3);
 
+
+.header__card-active {
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .main__wrapper {
@@ -71,14 +72,19 @@ body {
 
 .difficulty_button {
 
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 24px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .difficulty_button:hover {
+
+    border: 1px solid rgba(255, 255, 255);    
+}
+
+.difficulty_button-active {
     background-color: white;
-    cursor: pointer;
 }
 
 .stages {
@@ -98,7 +104,7 @@ body {
     margin-bottom: 10px;
 }
 
-.cards-number {
+.cards-amount {
     border-radius: 18px;
     width: 36px;
     height: 36px;
@@ -176,3 +182,13 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     
 }
+
+.card_image {
+    transition: opacity 0.5s;
+    transition: visibility 0.5s;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
