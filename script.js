@@ -3,7 +3,7 @@ import cardsDataGreen from './green.js';
 import cardsDataBrown from './brown.js';
 import cardsDataBlue from './blue.js';
 
-let ancient = ''
+let anc = '';
 let stage = 0;
 const deckPlay = [];
 
@@ -294,6 +294,7 @@ function getCard() {
     const cardImage = document.querySelector('.card_image');
     const cardSource = deckPlay[stage][0].cardFace;
     const color = deckPlay[stage][0].color;
+    const stagesHeaders = document.querySelectorAll('.stage');
   
     const cardsAmountBoard = document.querySelectorAll(`.${color}`)
     let cardsAmount = Number(cardsAmountBoard[stage].textContent);
@@ -304,7 +305,10 @@ function getCard() {
 
 
     deckPlay[stage].splice(0, 1);
-    if (deckPlay[stage].length === 0) stage++;
+    if (deckPlay[stage].length === 0) {
+        stagesHeaders[stage].classList.add('empty');
+        stage++;
+    }
     card.classList.remove('hidden');
 
     if (stage === 3) {
@@ -375,8 +379,30 @@ function setActiveDifficulty(event) {
     const stages = document.querySelector('.stages');
     const shirt = document.querySelector('.shirt');
     const card = document.querySelector('.card');
+    const stagesHeaders = document.querySelectorAll('.stage');
+    const cardsAmount = document.querySelectorAll('.cards-amount');
+
     card.classList.add('hidden');
 
+    stagesHeaders[0].classList.remove('empty');
+    stagesHeaders[1].classList.remove('empty');
+    stagesHeaders[2].classList.remove('empty');
+
+    for (let j = 0; j < ancientsData.length; j++) {
+        if (ancientsData[j].name === anc) {
+            cardsAmount[0].textContent = ancientsData[j].firstStage.greenCards;
+            cardsAmount[1].textContent = ancientsData[j].firstStage.brownCards;
+            cardsAmount[2].textContent = ancientsData[j].firstStage.blueCards;
+
+            cardsAmount[3].textContent = ancientsData[j].secondStage.greenCards;
+            cardsAmount[4].textContent = ancientsData[j].secondStage.brownCards;
+            cardsAmount[5].textContent = ancientsData[j].secondStage.blueCards;
+
+            cardsAmount[6].textContent = ancientsData[j].thirdStage.greenCards;
+            cardsAmount[7].textContent = ancientsData[j].thirdStage.brownCards;
+            cardsAmount[8].textContent = ancientsData[j].thirdStage.blueCards;
+        }
+    }
 
     for (let i = 0; i < difficulties.length; i++) {
         difficulties[i].classList.remove('difficulty_button-active');
@@ -395,14 +421,20 @@ function setActiveDifficulty(event) {
 
 function setActiveAncient(event) {
     const ancients = document.querySelectorAll('.header__card_image');
-
-    ancient = document.getElementsByName(event.target.name);
+    const stagesHeaders = document.querySelectorAll('.stage');
+    const ancient = document.getElementsByName(event.target.name);
     const difficulty = document.querySelector('.difficulty');
     const shirt = document.querySelector('.shirt');
     const stages = document.querySelector('.stages');
     const shuffle = document.querySelector('.shuffle');
     const card = document.querySelector('.card');
     const cardsAmount = document.querySelectorAll('.cards-amount');
+
+    anc = event.target.name;
+console.log(anc);
+    stagesHeaders[0].classList.remove('empty');
+    stagesHeaders[1].classList.remove('empty');
+    stagesHeaders[2].classList.remove('empty');
 
     for (let j = 0; j < ancientsData.length; j++) {
         if (ancientsData[j].name === event.target.name) {
