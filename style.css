@@ -10,8 +10,6 @@ body {
     justify-content: space-between;
     width: 100vw;
     overflow: hidden;
-
-
 }
 
 .header__wrapper {
@@ -21,7 +19,6 @@ body {
 }
 
 .header__wrapper_left {
-
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
@@ -30,7 +27,6 @@ body {
 }
 
 .header__wrapper_right {
-
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
@@ -45,8 +41,6 @@ body {
     border: 2px solid rgba(0, 0, 0, 0);
 }
 
-
-
 .header__card-active {
     border: 2px solid rgb(255, 255, 255);
 }
@@ -56,7 +50,6 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 99%;
-
 }
 
 .difficulty {
@@ -67,11 +60,9 @@ body {
     width: 19%;
     text-align: center;
     padding-bottom: 5px;
-
 }
 
 .difficulty_button {
-
     border: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 24px;
     border-radius: 4px;
@@ -79,7 +70,6 @@ body {
 }
 
 .difficulty_button:hover {
-
     border: 1px solid rgba(255, 255, 255);    
 }
 
@@ -92,7 +82,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: 19%; 
     font-size: 24px;
 }
@@ -130,7 +119,7 @@ body {
     width: 17%; 
     border: 2px solid white;
     border-radius: 6px;
-    height: 30px;
+    height: fit-content;
     text-align: center;
     font-size: 24px;
     margin-top: 30px;
@@ -147,15 +136,11 @@ body {
     gap: 15px;
     width: 40%; 
     justify-content: center;
-
-
 }
 
 .shirt {
     display: flex;
     justify-content: right;
-
-
 }
 
 
@@ -163,14 +148,11 @@ body {
 .card {
     display: flex;
     justify-content: left;
-
 }
 
 
 .deck_image {
     width: 70%;
-
-
 }
 
 .deck_image_shirt {
@@ -180,7 +162,6 @@ body {
 
 .deck_image_shirt:hover {
     border: 1px solid rgba(255, 255, 255, 0.3);
-    
 }
 
 .card_image {

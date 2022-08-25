@@ -7,17 +7,15 @@ let anc = '';
 let stage = 0;
 const deckPlay = [];
 
-
 let difficultyLevel = '';
 
 function getDeckPlay(greenDeckPlay, brownDeckPlay, blueDeckPlay) {
+
     const cardsAmount = document.querySelectorAll('.cards-amount');
-    let amountStage1 = Number(cardsAmount[0].textContent) + Number(cardsAmount[1].textContent) + Number(cardsAmount[2].textContent);
-    let amountStage2 = Number(cardsAmount[3].textContent) + Number(cardsAmount[4].textContent) + Number(cardsAmount[5].textContent);
-    let amountStage3 = Number(cardsAmount[6].textContent) + Number(cardsAmount[7].textContent) + Number(cardsAmount[8].textContent);
     const stage1 = [];
     const stage2 = [];
     const stage3 = [];  
+    
     stage = 0;
 for (let i = 0; i < Number(cardsAmount[0].textContent); i++) {
     stage1.push(greenDeckPlay[0]);
@@ -74,7 +72,6 @@ for (let i = stage1.length - 1; i > 0; i--) {
   }
 
 deckPlay.splice(0, deckPlay.length);
-
 deckPlay.push(stage1, stage2, stage3);
 
 }
@@ -83,19 +80,11 @@ function getGreenDeck() {
 
     const cardsAmount = document.querySelectorAll('.cards-amount');
     let amountGreen = Number(cardsAmount[0].textContent) + Number(cardsAmount[3].textContent) + Number(cardsAmount[6].textContent);
-
     const greenDeck = [];
     const greenDeckPlay = [];
     const normalDeck = [];
-
     let randomNum = 0;
-    let cardImageSrc = '';
     let repeat = false;
-
-
-
-
-
 
     for (let i = 0; i < cardsDataGreen.length; i++) {
         if (cardsDataGreen[i].difficulty === 'normal') {
@@ -117,11 +106,9 @@ function getGreenDeck() {
             }
             let p = 0;
             while (greenDeck.length < amountGreen) {
-
                 greenDeck.push(normalDeck[p]);
                 p++;
             }
-
         break;
 
         case 'easy':
@@ -155,25 +142,18 @@ function getGreenDeck() {
 
             let r = 0;
             while (greenDeck.length < amountGreen) {
-
                 greenDeck.push(normalDeck[r]);
                 r++;
             }
         break;
     }
 
-
     for (let k = 0; k < amountGreen; k++) {
         randomNum = Math.floor(Math.random() * greenDeck.length);
         repeat = false;
         for (let l = 0; l < greenDeckPlay.length; l++) {
-
-           
            if (greenDeckPlay[l].id ===  greenDeck[randomNum].id) {
-
-
             repeat = true;
-
            }
         }
 
@@ -184,14 +164,11 @@ function getGreenDeck() {
         }
     }
 
-
-
 return greenDeckPlay;
-
 }
 
-
 function getBrownDeck() {
+
     const cardsAmount = document.querySelectorAll('.cards-amount');
     let amountBrown = Number(cardsAmount[1].textContent) + Number(cardsAmount[4].textContent) + Number(cardsAmount[7].textContent);
 
@@ -200,7 +177,6 @@ function getBrownDeck() {
     const normalDeck = [];
 
     let randomNum = 0;
-    let cardImageSrc = '';
     let repeat = false;
 
     for (let i = 0; i < cardsDataBrown.length; i++) {
@@ -209,10 +185,10 @@ function getBrownDeck() {
         }
     }
 
-      for (let m = normalDeck.length - 1; m > 0; m--) {
+    for (let m = normalDeck.length - 1; m > 0; m--) {
     let n = Math.floor(Math.random() * (m + 1));
     [normalDeck[m], normalDeck[n]] = [normalDeck[n], normalDeck[m]];
-  }
+    }
 
     switch (difficultyLevel) {
         case 'easiest':
@@ -226,8 +202,8 @@ function getBrownDeck() {
                 brownDeck.push(normalDeck[p]);
                 p++;
             }
-
         break;
+
         case 'easy':
             for (let j = 0; j < cardsDataBrown.length; j++) {
                 if (cardsDataBrown[j].difficulty != 'hard') {
@@ -235,12 +211,11 @@ function getBrownDeck() {
                 }
             }
         break;
+
         case 'medium':
             for (let j = 0; j < cardsDataBrown.length; j++) {
                     brownDeck.push(cardsDataBrown[j]);
             }
-
-
         break;
 
         case 'high':
@@ -271,7 +246,6 @@ function getBrownDeck() {
 
         for (let l = 0; l < brownDeckPlay.length; l++) {
             if (brownDeckPlay[l].id ===  brownDeck[randomNum].id) {
-
             repeat = true;
            }
         }
@@ -282,11 +256,11 @@ function getBrownDeck() {
             brownDeckPlay.push(brownDeck[randomNum]);
         }
     }
-
     return brownDeckPlay;
 }
 
 function getBlueDeck() {
+
     const cardsAmount = document.querySelectorAll('.cards-amount');
     let amountBlue = Number(cardsAmount[2].textContent) + Number(cardsAmount[5].textContent) + Number(cardsAmount[8].textContent);
 
@@ -343,7 +317,6 @@ function getBlueDeck() {
         repeat = false;
         for (let l = 0; l < blueDeckPlay.length; l++) {
             if (blueDeckPlay[l].id ===  blueDeck[randomNum].id) {
-
             repeat = true;
            }
         }
@@ -354,7 +327,6 @@ function getBlueDeck() {
             blueDeckPlay.push(blueDeck[randomNum]);
         }
     }
-
 
     return blueDeckPlay;
 }
@@ -374,7 +346,6 @@ function getCard() {
     console.log(cardSource);
     cardImage.src = cardSource;
 
-
     deckPlay[stage].splice(0, 1);
     if (deckPlay[stage].length === 0) {
         stagesHeaders[stage].classList.add('empty');
@@ -386,9 +357,7 @@ function getCard() {
         const shirt = document.querySelector('.shirt');
         shirt.classList.add('hidden');
     }
-
 }
-
 
 function setTrackableAncients() {
     const ancients = document.querySelectorAll('.header__card_image');
@@ -396,11 +365,9 @@ function setTrackableAncients() {
     for (let i = 0; i < ancients.length; i++) {
         ancients[i].addEventListener('click', setActiveAncient);
     }
-
 }
 
 setTrackableAncients()
-
 
 function setTrackableDifficulty() {
     const difficulties = document.querySelectorAll('.difficulty_button');
@@ -464,11 +431,9 @@ function setActiveDifficulty(event) {
             cardsAmount[0].textContent = ancientsData[j].firstStage.greenCards;
             cardsAmount[1].textContent = ancientsData[j].firstStage.brownCards;
             cardsAmount[2].textContent = ancientsData[j].firstStage.blueCards;
-
             cardsAmount[3].textContent = ancientsData[j].secondStage.greenCards;
             cardsAmount[4].textContent = ancientsData[j].secondStage.brownCards;
             cardsAmount[5].textContent = ancientsData[j].secondStage.blueCards;
-
             cardsAmount[6].textContent = ancientsData[j].thirdStage.greenCards;
             cardsAmount[7].textContent = ancientsData[j].thirdStage.brownCards;
             cardsAmount[8].textContent = ancientsData[j].thirdStage.blueCards;
@@ -485,10 +450,7 @@ function setActiveDifficulty(event) {
     shirt.classList.add('hidden');
 
     difficultyLevel = event.target.id;
-
 }
-
-
 
 function setActiveAncient(event) {
     const ancients = document.querySelectorAll('.header__card_image');
@@ -512,24 +474,20 @@ function setActiveAncient(event) {
             cardsAmount[0].textContent = ancientsData[j].firstStage.greenCards;
             cardsAmount[1].textContent = ancientsData[j].firstStage.brownCards;
             cardsAmount[2].textContent = ancientsData[j].firstStage.blueCards;
-
             cardsAmount[3].textContent = ancientsData[j].secondStage.greenCards;
             cardsAmount[4].textContent = ancientsData[j].secondStage.brownCards;
             cardsAmount[5].textContent = ancientsData[j].secondStage.blueCards;
-
             cardsAmount[6].textContent = ancientsData[j].thirdStage.greenCards;
             cardsAmount[7].textContent = ancientsData[j].thirdStage.brownCards;
             cardsAmount[8].textContent = ancientsData[j].thirdStage.blueCards;
         }
     }
 
-
     card.classList.add('hidden');
 
     if (!stages.classList.contains('hidden')) {
         shuffle.classList.remove('hidden');
     }
-
     
     for (let i = 0; i < ancients.length; i++) {
         ancients[i].classList.remove('header__card-active');
@@ -539,6 +497,4 @@ function setActiveAncient(event) {
     difficulty.classList.remove('hidden');
     shirt.classList.add('hidden');
     stages.classList.add('hidden');
-
-
 }
