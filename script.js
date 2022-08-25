@@ -86,10 +86,27 @@ function getGreenDeck() {
 
     const greenDeck = [];
     const greenDeckPlay = [];
+    const normalDeck = [];
 
     let randomNum = 0;
     let cardImageSrc = '';
     let repeat = false;
+
+
+
+
+
+
+    for (let i = 0; i < cardsDataGreen.length; i++) {
+        if (cardsDataGreen[i].difficulty === 'normal') {
+            normalDeck.push(cardsDataGreen[i]);
+        }
+    }
+
+    for (let m = normalDeck.length - 1; m > 0; m--) {
+        let n = Math.floor(Math.random() * (m + 1));
+        [normalDeck[m], normalDeck[n]] = [normalDeck[n], normalDeck[m]];
+      }
 
     switch (difficultyLevel) {
         case 'easiest':
@@ -98,6 +115,13 @@ function getGreenDeck() {
                     greenDeck.push(cardsDataGreen[j]);
                 }
             }
+            let p = 0;
+            while (greenDeck.length < amountGreen) {
+
+                greenDeck.push(normalDeck[p]);
+                p++;
+            }
+
         break;
 
         case 'easy':
@@ -127,6 +151,13 @@ function getGreenDeck() {
                 if (cardsDataGreen[j].difficulty === 'hard') {
                     greenDeck.push(cardsDataGreen[j]);
                 }
+            }
+
+            let r = 0;
+            while (greenDeck.length < amountGreen) {
+
+                greenDeck.push(normalDeck[r]);
+                r++;
             }
         break;
     }
@@ -166,13 +197,35 @@ function getBrownDeck() {
 
     const brownDeck = [];
     const brownDeckPlay = [];
+    const normalDeck = [];
 
     let randomNum = 0;
     let cardImageSrc = '';
     let repeat = false;
 
+    for (let i = 0; i < cardsDataBrown.length; i++) {
+        if (cardsDataBrown[i].difficulty === 'normal') {
+            normalDeck.push(cardsDataBrown[i]);
+        }
+    }
+
+      for (let m = normalDeck.length - 1; m > 0; m--) {
+    let n = Math.floor(Math.random() * (m + 1));
+    [normalDeck[m], normalDeck[n]] = [normalDeck[n], normalDeck[m]];
+  }
+
     switch (difficultyLevel) {
         case 'easiest':
+            for (let j = 0; j < cardsDataBrown.length; j++) {
+                if (cardsDataBrown[j].difficulty === 'easy') {
+                    brownDeck.push(cardsDataBrown[j]);
+                }
+            }
+            let p = 0;
+            while (brownDeck.length < amountBrown) {
+                brownDeck.push(normalDeck[p]);
+                p++;
+            }
 
         break;
         case 'easy':
@@ -199,13 +252,23 @@ function getBrownDeck() {
         break;
 
         case 'highest':
-
+            for (let j = 0; j < cardsDataBrown.length; j++) {
+                if (cardsDataBrown[j].difficulty === 'hard') {
+                    brownDeck.push(cardsDataBrown[j]);
+                }
+            }
+            let q = 0;
+            while (brownDeck.length < amountBrown) {
+                brownDeck.push(normalDeck[q]);
+                q++;
+            }
         break;
     }
 
     for (let k = 0; k < amountBrown; k++) {
         randomNum = Math.floor(Math.random() * brownDeck.length);
         repeat = false;
+
         for (let l = 0; l < brownDeckPlay.length; l++) {
             if (brownDeckPlay[l].id ===  brownDeck[randomNum].id) {
 
@@ -236,7 +299,11 @@ function getBlueDeck() {
 
     switch (difficultyLevel) {
         case 'easiest':
-
+            for (let j = 0; j < cardsDataBlue.length; j++) {
+                if (cardsDataBlue[j].difficulty === 'easy') {
+                    blueDeck.push(cardsDataBlue[j]);
+                }
+            }
         break;
 
         case 'easy':
@@ -263,7 +330,11 @@ function getBlueDeck() {
         break;
 
         case 'highest':
-
+            for (let j = 0; j < cardsDataBlue.length; j++) {
+                if (cardsDataBlue[j].difficulty === 'hard') {
+                    blueDeck.push(cardsDataBlue[j]);
+                }
+            }
         break;
     }
 
@@ -431,7 +502,7 @@ function setActiveAncient(event) {
     const cardsAmount = document.querySelectorAll('.cards-amount');
 
     anc = event.target.name;
-console.log(anc);
+
     stagesHeaders[0].classList.remove('empty');
     stagesHeaders[1].classList.remove('empty');
     stagesHeaders[2].classList.remove('empty');
